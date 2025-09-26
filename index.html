@@ -3,287 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAIKRISHNA P's Portfolio</title>
-    <!-- Tailwind CSS -->
+    <title>SAIKRISHNA P - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#1E293B',
-                        secondary: '#F8FAFC',
-                        accent: '#FB923C',
-                        'medium-gray': '#64748B',
-                        'dark-gray': '#475569',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC;
+            @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100;
         }
-        .text-accent-gradient {
-            background-image: linear-gradient(to right, #FB923C, #FDBA74);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .typing-container {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: none;
-        }
+
+        /* Color palette from your outline */
+        .bg-primary { background-color: #1E293B; }
+        .text-primary { color: #1E293B; }
+        .bg-secondary { background-color: #F8FAFC; }
+        .text-secondary { color: #F8FAFC; }
+        .bg-accent { background-color: #FB923C; }
+        .text-accent { color: #FB923C; }
+        .text-medium-gray { color: #64748B; }
+
+        /* Custom animation for the typing effect cursor */
         .typing-cursor {
-            border-right: 2px solid;
-            animation: blink-caret .75s step-end infinite;
+            display: inline-block;
+            animation: blink 0.7s infinite;
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #FB923C; }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
-        .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        html {
-            scroll-behavior: smooth;
+
+        .scroll-mt-24 {
+            scroll-margin-top: 6rem;
         }
     </style>
 </head>
-<body class="bg-secondary text-primary dark:bg-primary dark:text-secondary">
 
-    <!-- Sticky Header/Navigation -->
-    <header class="sticky top-0 z-50 bg-secondary/80 dark:bg-primary/80 backdrop-blur-sm shadow-md py-4">
-        <div class="container mx-auto flex justify-between items-center px-6 lg:px-8">
-            <a href="#" class="text-xl font-bold">SAIKRISHNA P</a>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-accent transition-colors">About</a>
-                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
-                <a href="#" class="bg-accent text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors">Download Resume</a>
+<body class="bg-secondary text-slate-900">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm py-4">
+        <div class="container mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary">SAIKRISHNA P</a>
+            <nav>
+                <ul class="flex space-x-6 text-sm font-medium">
+                    <li><a href="#about" class="text-medium-gray hover:text-accent transition-colors duration-300">About</a></li>
+                    <li><a href="#projects" class="text-medium-gray hover:text-accent transition-colors duration-300">Projects</a></li>
+                    <li><a href="#contact" class="text-medium-gray hover:text-accent transition-colors duration-300">Contact</a></li>
+                </ul>
             </nav>
+            <a href="#" class="hidden sm:block px-4 py-2 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-colors duration-300">Download Resume</a>
         </div>
-        <!-- Mobile Menu -->
-        <nav id="mobile-menu" class="hidden md:hidden bg-secondary dark:bg-primary px-6 pb-4 pt-2 shadow-inner">
-            <a href="#about" class="block py-2 hover:text-accent transition-colors">About</a>
-            <a href="#projects" class="block py-2 hover:text-accent transition-colors">Projects</a>
-            <a href="#contact" class="block py-2 hover:text-accent transition-colors">Contact</a>
-            <a href="#" class="block mt-4 text-center bg-accent text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors">Download Resume</a>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="py-16 md:py-24 flex items-center justify-center">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-                <span class="block">I'm SAIKRISHNA P,</span>
-                <span id="hero-headline" class="text-accent-gradient"></span>
-                <span id="typing-cursor" class="typing-cursor text-accent">|</span>
-            </h1>
-            <p class="text-lg md:text-xl text-medium-gray dark:text-gray-400 max-w-2xl mx-auto mb-8">
-                Crafting web experiences that actually work.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#projects" class="bg-accent text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600 transition-colors">
-                    View My Work
-                </a>
-                <a href="#contact" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-8 py-3 rounded-full font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
-                    Let's Build Something
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white dark:bg-dark-gray">
-        <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">The Human Behind the Code</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
-                <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/400x400/64748B/FFFFFF?text=SAIKRISHNA+P" alt="SAIKRISHNA P" class="rounded-3xl shadow-xl w-full h-auto object-cover">
-                </div>
-                <div class="w-full md:w-2/3 max-w-xl">
-                    <h3 class="text-2xl md:text-3xl font-semibold mb-4">Meet the Developer</h3>
-                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed mb-6">
-                        Hey there! I'm SAIKRISHNA P – a passionate full-stack developer who loves turning wild ideas into pixel-perfect reality. Currently crushing my BTech (Class of 2028), but I've been coding since before it was cool to have "developer" in your bio.
-                    </p>
-                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed mb-6">
-                        My superpower? Building seamless web experiences that make users go "wow, that just works!" From crafting responsive frontends with React and Vue to architecting robust backends with Python and Django, I speak fluent code in multiple dialects.
-                    </p>
-                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed">
-                        When I'm not debugging at 2 AM (okay, maybe I am), you'll find me exploring the latest web technologies, creating digital designs in Illustrator, or helping teams bring their visions to life through clear communication and solid project management. I believe great software isn't just about clean code – it's about solving real problems for real people. Ready to build something amazing together?
-                    </p>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 lg:px-8 py-24 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                    <span class="text-accent">Full-Stack Developer</span> & Digital Problem Solver
+                </h1>
+                <p id="typing-text" class="mt-4 text-xl md:text-2xl text-medium-gray min-h-[3rem]"></p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#projects" class="px-6 py-3 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-colors duration-300">View My Work</a>
+                    <a href="#contact" class="px-6 py-3 text-medium-gray font-semibold rounded-lg border border-medium-gray hover:text-accent hover:border-accent transition-colors duration-300">Let's Build Something</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16">
-        <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Things I've Built</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
-                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+1" alt="Project 1" class="w-full rounded-xl mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Project 1: Featured Build</h3>
-                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">React</span>
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Node.js</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
-                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
-                    </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
-                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+2" alt="Project 2" class="w-full rounded-xl mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Project 2: Latest Creations</h3>
-                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Python</span>
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Django</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
-                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
+        <!-- About Section -->
+        <section id="about" class="bg-white py-20 scroll-mt-24 rounded-t-3xl shadow-lg">
+            <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center mb-8">The Human Behind the Code</h2>
+                <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                    <img src="https://placehold.co/300x300/e2e8f0/64748b?text=SAIKRISHNA+P" alt="SAIKRISHNA P" class="rounded-full w-48 h-48 mb-6 md:mb-0 shadow-lg">
+                    <div>
+                        <p class="text-lg text-medium-gray">
+                            Hey there! I'm SAIKRISHNA P– a passionate full-stack developer who loves turning wild ideas into pixel-perfect reality. Currently crushing my BTech (Class of 2028), but I've been coding since before it was cool to have "developer" in your bio.
+                        </p>
+                        <p class="mt-4 text-lg text-medium-gray">
+                            My superpower? Building seamless web experiences that make users go "wow, that just works!" From crafting responsive frontends with React and Vue to architecting robust backends with Python and Django, I speak fluent code in multiple dialects.
+                        </p>
+                        <p class="mt-4 text-lg text-medium-gray">
+                            When I'm not debugging at 2 AM (okay, maybe I am), you'll find me exploring the latest web technologies, creating digital designs in Illustrator, or helping teams bring their visions to life through clear communication and solid project management. I believe great software isn't just about clean code – it's about solving real problems for real people. Ready to build something amazing together?
+                        </p>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-4">My Technical Toolbox</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">React</span>
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Vue.js</span>
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Django</span>
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                                <span class="bg-gray-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Project Card 3 -->
-                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
-                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+3" alt="Project 3" class="w-full rounded-xl mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Project 3: Another Creation</h3>
-                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Vue.js</span>
-                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Firebase</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
-                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
-                    </div>
-                </div>
-                <!-- Add more project cards here following the same structure -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white dark:bg-dark-gray">
-        <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Let's Create Together</h2>
-            <div class="max-w-xl mx-auto">
-                <p class="text-center text-medium-gray dark:text-gray-400 mb-8">
-                    I'm currently available for new opportunities. Feel free to reach out via the form below or connect with me on social media.
-                </p>
-                <form action="mailto:saikrishnapathirikkattu@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 scroll-mt-24">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">Things I've Built</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1E293B/F8FAFC?text=Project+1+Image" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-primary mb-2">Project Title Placeholder 1</h3>
+                            <p class="text-sm text-medium-gray mb-4">A brief description of this project, highlighting the problem it solves and its key features. Demonstrates my full-stack capabilities.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">React</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">Node.js</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">MongoDB</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline font-medium">See Live Demo</a>
+                                <a href="https://github.com/PHENIX3z" class="text-medium-gray hover:text-accent font-medium">Check GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1E293B/F8FAFC?text=Project+2+Image" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-primary mb-2">Project Title Placeholder 2</h3>
+                            <p class="text-sm text-medium-gray mb-4">This is a description for another project. It showcases a different set of skills and technical challenges I've overcome.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">Vue.js</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">Python</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">Django</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline font-medium">See Live Demo</a>
+                                <a href="https://github.com/PHENIX3z" class="text-medium-gray hover:text-accent font-medium">Check GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1E293B/F8FAFC?text=Project+3+Image" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-primary mb-2">Project Title Placeholder 3</h3>
+                            <p class="text-sm text-medium-gray mb-4">A brief description for a third project that highlights my problem-solving skills and clean code practices.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">HTML/CSS</span>
+                                <span class="bg-gray-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium">API Integration</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline font-medium">See Live Demo</a>
+                                <a href="https://github.com/PHENIX3z" class="text-medium-gray hover:text-accent font-medium">Check GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-primary text-white py-20 scroll-mt-24 rounded-t-3xl">
+            <div class="container mx-auto px-6 lg:px-8 max-w-2xl">
+                <h2 class="text-3xl font-bold text-center mb-4">Let's Create Together</h2>
+                <p class="text-center text-lg text-slate-300 mb-12">I am currently available for new opportunities.</p>
+                <form action="#" method="POST" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required>
+                        <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your Name" required>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium mb-1">Your Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required>
+                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="your@email.com" required>
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-medium mb-1">Your Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required></textarea>
+                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Tell me about your project or opportunity..." required></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors">
-                        Send Message
-                    </button>
+                    <button type="submit" class="w-full px-6 py-3 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition-colors duration-300">Send Message</button>
                 </form>
-                <div class="flex justify-center space-x-6 mt-8">
-                    <!-- GitHub Link -->
-                    <a href="https://github.com/johntester" target="_blank" class="text-medium-gray hover:text-accent transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.37-1.341-3.37-1.341-.454-1.157-1.11-1.465-1.11-1.465-.92-.625.06-1.028.06-1.028 1.02-.72 1.55-.745 1.55-.745 1.104-.764 1.765-1.92 1.765-1.92.105-.72-.416-1.92-1.04-2.373C6.55 9.773 4.414 10.378 4.414 7.643c0-1.265.51-2.43 1.343-3.292C5.69 4.14 5.25 3.33 5.4 2.38c.45-.145 1.51.52 2.76 1.488 1.13-.314 2.324-.47 3.52-.47 1.196 0 2.39.155 3.52.47 1.25-1.03 2.31-1.63 2.76-1.485.15.95-.29 1.76-.05 2.585.834.862 1.344 2.027 1.344 3.292 0 2.735-2.137 2.13-2.764 2.012-.61.523-.974 1.25-1.096 2.274-.015.11-.008.385-.008.577 0 .237.18.49.69.483C17.135 20.198 20 16.443 20 12.017c0-5.533-4.473-10.017-10-10.017z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- LinkedIn Link -->
-                    <a href="https://www.linkedin.com/in/saikrishnapathirikkattu" target="_blank" class="text-medium-gray hover:text-accent transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
+                <div class="mt-12 text-center text-slate-400">
+                    <p class="mb-4">Or connect with me on social media:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/PHENIX3z" class="text-slate-400 hover:text-white transition-colors duration-300" target="_blank">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.954 0-1.094.39-1.984 1.029-2.681-.103-.253-.446-1.272.098-2.65 0 0 .84-.267 2.75 1.029A9.563 9.563 0 0112 6.844c.85.004 1.701.118 2.502.338 1.909-1.296 2.747-1.029 2.747-1.029.546 1.379.202 2.4-.099 2.65.64.697 1.028 1.587 1.028 2.681 0 3.85-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300" target="_blank">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.763s.784-1.763 1.75-1.763 1.75.79 1.75 1.763-.784 1.763-1.75 1.763zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-6 text-center text-sm text-medium-gray dark:text-gray-400">
-        <p>&copy; 2024 SAIKRISHNA P. All Rights Reserved.</p>
-    </footer>
+        </section>
+    </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Typing Animation
-            const heroHeadline = document.getElementById('hero-headline');
-            const typingCursor = document.getElementById('typing-cursor');
-            const words = [
-                "Full-Stack Developer",
-                "Digital Problem Solver",
-                "Crafting Web Experiences",
-                "Code + Creativity"
-            ];
-            let wordIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
+        // Typing animation script
+        const typingTextElement = document.getElementById('typing-text');
+        const phrases = [
+            "Crafting Web Experiences That Actually Work",
+            "Code + Creativity = Digital Magic ✨"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-            function type() {
-                const currentWord = words[wordIndex];
-                const displayedText = currentWord.substring(0, charIndex);
-                heroHeadline.textContent = displayedText;
-
-                if (!isDeleting && charIndex < currentWord.length) {
-                    charIndex++;
-                } else if (isDeleting && charIndex > 0) {
-                    charIndex--;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (!isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex) + '|';
+                charIndex++;
+                if (charIndex > currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1500);
                 } else {
-                    isDeleting = !isDeleting;
-                    if (!isDeleting) {
-                        wordIndex = (wordIndex + 1) % words.length;
-                    }
+                    setTimeout(type, 80);
                 }
-
-                typingCursor.style.visibility = (isDeleting && charIndex === 0) ? 'hidden' : 'visible';
-                setTimeout(type, isDeleting ? 50 : 150);
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex) + '|';
+                charIndex--;
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, 40);
+                }
             }
+        }
 
-            type();
-
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            // Hide menu when a link is clicked
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
         });
     </script>
 </body>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAIKRISHNA P's Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1E293B',
+                        secondary: '#F8FAFC',
+                        accent: '#FB923C',
+                        'medium-gray': '#64748B',
+                        'dark-gray': '#475569',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .text-accent-gradient {
+            background-image: linear-gradient(to right, #FB923C, #FDBA74);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .typing-container {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: none;
+        }
+        .typing-cursor {
+            border-right: 2px solid;
+            animation: blink-caret .75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #FB923C; }
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-primary dark:bg-primary dark:text-secondary">
+
+    <!-- Sticky Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-secondary/80 dark:bg-primary/80 backdrop-blur-sm shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center px-6 lg:px-8">
+            <a href="#" class="text-xl font-bold">SAIKRISHNA P</a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-accent transition-colors">About</a>
+                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                <a href="#" class="bg-accent text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors">Download Resume</a>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-secondary dark:bg-primary px-6 pb-4 pt-2 shadow-inner">
+            <a href="#about" class="block py-2 hover:text-accent transition-colors">About</a>
+            <a href="#projects" class="block py-2 hover:text-accent transition-colors">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-accent transition-colors">Contact</a>
+            <a href="#" class="block mt-4 text-center bg-accent text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors">Download Resume</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-16 md:py-24 flex items-center justify-center">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+                <span class="block">I'm SAIKRISHNA P,</span>
+                <span id="hero-headline" class="text-accent-gradient"></span>
+                <span id="typing-cursor" class="typing-cursor text-accent">|</span>
+            </h1>
+            <p class="text-lg md:text-xl text-medium-gray dark:text-gray-400 max-w-2xl mx-auto mb-8">
+                Crafting web experiences that actually work.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#projects" class="bg-accent text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600 transition-colors">
+                    View My Work
+                </a>
+                <a href="#contact" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-8 py-3 rounded-full font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
+                    Let's Build Something
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-dark-gray">
+        <div class="container mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">The Human Behind the Code</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/400x400/64748B/FFFFFF?text=SAIKRISHNA+P" alt="SAIKRISHNA P" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="w-full md:w-2/3 max-w-xl">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4">Meet the Developer</h3>
+                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed mb-6">
+                        Hey there! I'm SAIKRISHNA P – a passionate full-stack developer who loves turning wild ideas into pixel-perfect reality. Currently crushing my BTech (Class of 2028), but I've been coding since before it was cool to have "developer" in your bio.
+                    </p>
+                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed mb-6">
+                        My superpower? Building seamless web experiences that make users go "wow, that just works!" From crafting responsive frontends with React and Vue to architecting robust backends with Python and Django, I speak fluent code in multiple dialects.
+                    </p>
+                    <p class="text-medium-gray dark:text-gray-400 leading-relaxed">
+                        When I'm not debugging at 2 AM (okay, maybe I am), you'll find me exploring the latest web technologies, creating digital designs in Illustrator, or helping teams bring their visions to life through clear communication and solid project management. I believe great software isn't just about clean code – it's about solving real problems for real people. Ready to build something amazing together?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Things I've Built</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
+                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+1" alt="Project 1" class="w-full rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Project 1: Featured Build</h3>
+                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">React</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Node.js</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
+                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
+                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+2" alt="Project 2" class="w-full rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Project 2: Latest Creations</h3>
+                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Python</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Django</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
+                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white dark:bg-dark-gray rounded-xl shadow-lg p-6 card">
+                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Project+3" alt="Project 3" class="w-full rounded-xl mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Project 3: Another Creation</h3>
+                    <p class="text-medium-gray dark:text-gray-400 mb-4">A brief description of your project. Mention the problem it solves and the technologies used.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Vue.js</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-full">Firebase</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors">Live Demo</a>
+                        <a href="#" class="bg-white dark:bg-dark-gray text-primary dark:text-white px-4 py-2 rounded-full text-sm font-semibold border border-gray-200 dark:border-dark-gray hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">GitHub</a>
+                    </div>
+                </div>
+                <!-- Add more project cards here following the same structure -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white dark:bg-dark-gray">
+        <div class="container mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Let's Create Together</h2>
+            <div class="max-w-xl mx-auto">
+                <p class="text-center text-medium-gray dark:text-gray-400 mb-8">
+                    I'm currently available for new opportunities. Feel free to reach out via the form below or connect with me on social media.
+                </p>
+                <form action="mailto:saikrishnapathirikkattu@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Your Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-1">Your Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-accent bg-secondary dark:bg-dark-gray" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+                <div class="flex justify-center space-x-6 mt-8">
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/johntester" target="_blank" class="text-medium-gray hover:text-accent transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.37-1.341-3.37-1.341-.454-1.157-1.11-1.465-1.11-1.465-.92-.625.06-1.028.06-1.028 1.02-.72 1.55-.745 1.55-.745 1.104-.764 1.765-1.92 1.765-1.92.105-.72-.416-1.92-1.04-2.373C6.55 9.773 4.414 10.378 4.414 7.643c0-1.265.51-2.43 1.343-3.292C5.69 4.14 5.25 3.33 5.4 2.38c.45-.145 1.51.52 2.76 1.488 1.13-.314 2.324-.47 3.52-.47 1.196 0 2.39.155 3.52.47 1.25-1.03 2.31-1.63 2.76-1.485.15.95-.29 1.76-.05 2.585.834.862 1.344 2.027 1.344 3.292 0 2.735-2.137 2.13-2.764 2.012-.61.523-.974 1.25-1.096 2.274-.015.11-.008.385-.008.577 0 .237.18.49.69.483C17.135 20.198 20 16.443 20 12.017c0-5.533-4.473-10.017-10-10.017z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/saikrishnapathirikkattu" target="_blank" class="text-medium-gray hover:text-accent transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-medium-gray dark:text-gray-400">
+        <p>&copy; 2024 SAIKRISHNA P. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Typing Animation
+            const heroHeadline = document.getElementById('hero-headline');
+            const typingCursor = document.getElementById('typing-cursor');
+            const words = [
+                "Full-Stack Developer",
+                "Digital Problem Solver",
+                "Crafting Web Experiences",
+                "Code + Creativity"
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                const displayedText = currentWord.substring(0, charIndex);
+                heroHeadline.textContent = displayedText;
+
+                if (!isDeleting && charIndex < currentWord.length) {
+                    charIndex++;
+                } else if (isDeleting && charIndex > 0) {
+                    charIndex--;
+                } else {
+                    isDeleting = !isDeleting;
+                    if (!isDeleting) {
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+                }
+
+                typingCursor.style.visibility = (isDeleting && charIndex === 0) ? 'hidden' : 'visible';
+                setTimeout(type, isDeleting ? 50 : 150);
+            }
+
+            type();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Hide menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
